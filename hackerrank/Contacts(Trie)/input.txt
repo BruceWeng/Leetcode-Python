@@ -1,0 +1,13 @@
+Input:
+7
+add hacker
+add hack
+add her
+add hi
+add hat
+find h
+find ha
+
+Output:
+5
+3
