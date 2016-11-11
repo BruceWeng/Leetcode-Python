@@ -40,13 +40,40 @@ and the correct name for each SSN with the highest order is MERVIN AEDLINE BOUCK
 '''
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
+'''
+@param patients(list of list)
+'''
+def dupNames(patients):
+    uPatient = {} #key: ssn, value: [name, space]
+    result = []
+
+    for patient in patients:
+        name = patient[0]
+        ssn = patient[1]
+        space = 0
+        for letter in name:
+            if letter == ' ':
+                space += 1
+        if ssn in uPatient:
+            if len(name) > len(uPatient[ssn][0]) or (len(name) == len(uPatient[ssn][0]) and space > uPatient[ssn][1]):
+                uPatient[ssn][0] = name
+                uPatient[ssn][1] = space
+        else:
+            uPatient[ssn] = [name, space]
+
+    for key in uPatient:
+        result.append(str(uPatient[key][0]) + ':' + str(key))
+
+    for patient in result:
+        print patient
 
 def main():
     n = int(raw_input())
-    for i in xrange(n):
-        patient = input().split(':')
+    patients = []
+    for i in range(n):
+        patients.append(raw_input().split(':')) # [[name, ssn]...]
 
-    print n
-    print patient
+    dupNames(patients)
+
 if __name__ == '__main__':
     main()
