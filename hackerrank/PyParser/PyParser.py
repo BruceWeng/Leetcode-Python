@@ -13,7 +13,8 @@ For example:
 </tag1>
 
 The attibutes are referenced as:
-tag1~valuetag1.tag2~name
+tag1~value
+tag1.tag2~name
 You are given the source code in HRML format consisting of N lines. You have to answer Q queries. Each query askes you to print the value of the attribute specified. Print "Not Found!" if there isn't any such attibute.
 
 Input Format
@@ -21,9 +22,13 @@ The first line consists of two space separated integers, N and Q. The next N lin
 
 Sample Input:
 4 3
-<tag1 value = "HelloWord">
+<tag1 value = "HelloWord" time = "0800">
 <tag2 name = "Name1">
 </tag2>
+<tag3 name = "Tom">
+<tag4>
+</tag4>
+</tag3>
 </tag1>
 tag1.tag2~name
 tag1~name
