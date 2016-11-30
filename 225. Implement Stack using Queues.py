@@ -1,7 +1,8 @@
+from collections import deque
 class Stack:
     # initialize your data structure here.
     def __init__(self):
-        self.queue = []
+        self.queue = deque()
 
     # @param x, an integer
     # @return nothing
@@ -11,17 +12,17 @@ class Stack:
     # @return nothing
     def pop(self):
         for x in range(len(self.queue) - 1):
-            self.queue.append(self.queue.pop(0))
-        self.queue.pop(0)
+            self.queue.append(self.queue.popleft())
+        self.queue.popleft()
 
     # @return an integer
     def top(self):
         top = None
         for x in range(len(self.queue)):
-            top = self.queue.pop(0)
+            top = self.queue.popleft()
             self.queue.append(top)
         return top
 
     # @return an boolean
     def empty(self):
-        return self.queue == []
+        return len(self.queue) == 0
