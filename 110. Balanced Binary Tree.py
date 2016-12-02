@@ -6,6 +6,7 @@
 #         self.right = None
 
 # Divide and Conquer
+# http://www.jianshu.com/p/5f5bbc41f8b7
 class Solution(object):
     def isBalanced(self, root):
         """
