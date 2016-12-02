@@ -106,8 +106,8 @@ def dfsGraph(root):
       5  6  7
              \
               8
-               \
-                9
+             / \
+            10  9
 """
 root2 = GraphNode(1)
 root2.children[2] = GraphNode(2)
@@ -117,6 +117,7 @@ root2.children[2].children[5] = GraphNode(5)
 root2.children[2].children[6] = GraphNode(6)
 root2.children[2].children[7] = GraphNode(7)
 root2.children[2].children[7].children[8] = GraphNode(8)
+root2.children[2].children[7].children[8].children[10] = GraphNode(10)
 root2.children[2].children[7].children[8].children[9] = GraphNode(9)
 
 # print root2.children[2].val
