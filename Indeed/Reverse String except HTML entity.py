@@ -12,34 +12,58 @@ Step 1: reverse non-html tokens, and store the result into a list. For the HTML 
 Step 2: construct the final result just concatenate the list in a reverse order.
 '''
 def reverseHTML(strs):
-    result = []
-    left = 0
-    right = 0
-    key = 0
-    cache = {}
-    flag = False
-    for i in range(len(strs)):
-        if strs[i] == '&':
-            left = i
-            flag = True
-        elif flag == True and strs[i] == ';':
-            right = i
-            result.append(strs[left:right + 1])
-            temp = []
-            flag = False
-        elif flag == False:
-            result.append(strs[i])
-        elif i == len(strs) - 1 and flag == True:
-            result += strs[left:i + 1]
+    if strs == None or len(strs) == 0:
+        return strs
 
-    result2 = ''
-    for i in range(len(result) - 1, -1, -1):
-        if len(result[i]) > 1:
-            result2 += ''.join(result[i])
+    tokens = []
+    start = 0
+    end = 0
+
+    def reverse(strs, start, end):
+        result = ''
+        while start <= end:
+            result += strs[end]
+            end -= 1
+
+        return result
+
+    while end < len(strs):
+        if strs[end] != '&':
+            end += 1
         else:
-            result2 += str(result[i])
+            # Step1: Reverse substring before &
+            if end != 0:
+                token = reverse(strs, start, end - 1)
+                tokens.append(token)
 
-    return result2
+            # Step2: Put the HTML entity into the tokens
+            temp = ''
+            while end < len(strs) and strs[end] != ';':
+                temp += strs[end]
+                end += 1
+
+            if end < len(strs):
+                temp += ';'
+                tokens.append(temp)
+                # Step3: Update start
+                end += 1
+                start = end
+    # Step1: Reverse the trailing chars
+    if start == 0:
+        return reverse(strs, start, len(strs) - 1)
+
+    if start < end:
+        token = reverse(strs, start, len(strs) - 1)
+        tokens.append(token)
+
+    # Step2: Concatenate the Final result
+    result = ''
+    for i in range(len(tokens) - 1, -1, -1):
+        result += tokens[i]
+
+    return result
+
+
 
 test1 = "1234&euro;"
 test2 = "1234&euro"
