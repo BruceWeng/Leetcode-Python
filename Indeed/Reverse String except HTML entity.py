@@ -20,12 +20,10 @@ def reverseHTML(strs):
     end = 0
 
     def reverse(strs, start, end):
-        result = ''
-        while start <= end:
-            result += strs[end]
-            end -= 1
+        if start == 0:
+            return ''.join(list(strs)[end::-1])
+        return ''.join(list(strs)[end:start-1:-1])
 
-        return result
 
     while end < len(strs):
         if strs[end] != '&':
