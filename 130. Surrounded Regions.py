@@ -18,7 +18,6 @@ class Solution(object):
 
             queue.append([x, y])
             board[x][y] = '*'
-            print board
 
         # BFS on every grid
         def bfs(x, y, queue):
@@ -53,6 +52,7 @@ class Solution(object):
                 elif board[i][j] == 'O':
                     board[i][j] = 'X'
 
-test1 = ["XXXX", "XOOX", "XXOX", "XOXX"]
+        return board
+test1 = [["X","X","X","X"], ["X","O","O","X"], ["X","X","O","X"], ["X","O","X","X"]]
 sol = Solution()
-sol.solve(test1)
+print sol.solve(test1)
