@@ -30,6 +30,9 @@ def findMaxDiff(nums):
             localMax = objList[i]['index']
             preValue = objList[i]['value']
 
+    mostMin.append(localMin)
+    mostMax.append(localMax)
+    
     for i in range(1, len(mostMax)):
         result = max(result, abs(mostMax[i] - mostMin[i-1]))
 
