@@ -46,6 +46,7 @@ class Solution(object):
             return count * 2
         else:
             return count * 2 + 1
+
 test1 = "abccccdd"
 sol = Solution()
 print sol.longestPalindrome2(test1) #7
