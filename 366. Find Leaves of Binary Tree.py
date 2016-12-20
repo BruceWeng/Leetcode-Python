@@ -21,7 +21,7 @@ class Solution(object):
 
             if height == len(result):
                 result.append([])
-            result[i].append(root.val)
+            result[height].append(root.val)
 
             return height
 
