@@ -1,3 +1,14 @@
+"""
+Given an array of strings, group anagrams together.
+
+For example, given: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Return:
+[
+  ["ate", "eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+"""
 class Solution(object):
     # Solution:
     # T: if max words length == k, O(klogk * n)
@@ -10,7 +21,7 @@ class Solution(object):
         if not strs or len(strs) == 0:
             return [[]]
 
-        cache = {}
+        cache = {} # key: sorted(words), value: list of words
         result = []
         for words in strs:
             sortedWords = "".join(sorted(words))
@@ -24,6 +35,7 @@ class Solution(object):
 
         return result
 
-test1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
-sol = Solution()
-print sol.groupAnagrams(test1)
+if __name__=="__main__":
+    test1 = ["eat", "tea", "tan", "ate", "nat", "bat"]
+    sol = Solution()
+    print sol.groupAnagrams(test1)
