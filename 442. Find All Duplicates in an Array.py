@@ -27,6 +27,10 @@ the size of the array. That implys elment - 1 can map to index in the array 0 â‰
 2. While traversing, if any nums[abs(array[i]-1)] is negative, result.append[array[i]]
 3. return result
 """
+"""
+@param {int[]} nums
+@return {int[]}
+"""
 def findDuplicates(nums):
     if nums == None or len(nums) == 0:
         return []
