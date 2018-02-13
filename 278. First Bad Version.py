@@ -13,8 +13,8 @@ the number of calls to the API.
 """
 """
 Algorithm: Binary Search
-1. start = mid condition: isBadVersion(n) == True, first badVersion is in RHS
-2. end = mid condition: isBadVersion(n) == False, fist badVersion is in LHS
+1. end = mid condition: isBadVersion(n) == True, first badVersion is in RHS
+2. start = mid condition: isBadVersion(n) == False, fist badVersion is in LHS
 3. if isBadVersion(start): return start, otherwise return end
 """
 
