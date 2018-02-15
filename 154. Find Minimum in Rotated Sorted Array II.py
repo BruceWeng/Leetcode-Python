@@ -1,18 +1,24 @@
 """
+Follow up for "Find Minimum in Rotated Sorted Array":
+What if duplicates are allowed?
+
+Would this affect the run-time complexity? How and why?
+
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
 (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
 
 Find the minimum element.
 
-You may assume no duplicate exists in the array.
+The array may contain duplicates.
 """
 """
-Algorithm: Binary Search
-1. if nums[mid] > nums[end]: start = mid
-2. if nums[mid] < nums[end]: end = mid
-3. after binary search:
-    return min(nums[start], nums[end])
+Algorithm:
+Worst case: every element are the same, T: O(n)
+1. if nums[mid] == nums[end]: end -= 1 (save to remove end pointer)
+2. if nums[mid] > nums[end]: start = mid
+3. if nums[mid] < nums[end]: end = mid
+4. After binary search: return min(nums[start], nums[end])
 """
 """
 @param {int[]} nums
@@ -27,8 +33,10 @@ def findMin(nums):
 
     while start + 1 < end:
         mid = start + (end - start) // 2
+        if nums[mid] == nums[end]:
+            end -= 1
         # Use nums[end] rather than nums[start] to compare to cover non-rotate case
-        if nums[mid] >= nums[end]:
+        elif nums[mid] >= nums[end]:
             start = mid
         else:
             end = mid
@@ -36,4 +44,4 @@ def findMin(nums):
     return min(nums[start], nums[end])
 
 if __name__=="__main__":
-    print(findMin([4, 5, 6, 7, 0, 1, 2])) # 0
+    print(findMin([4, 5, 6, 7, 0, 0, 1, 1, 1, 2])) # 0
