@@ -67,7 +67,7 @@ def lengthOfLIS2(nums):
     minLast = [sys.maxsize] * (len(nums) + 1)
     minLast[0] = - sys.maxsize - 1
 
-    # find the first number > num
+    # find the first number >= num
     def binarySearch(num):
         start = 0
         end = len(minLast) - 1
@@ -77,6 +77,7 @@ def lengthOfLIS2(nums):
                 start = mid
             else:
                 end = mid
+        # end always >= num
         return end
 
     for num in nums:
