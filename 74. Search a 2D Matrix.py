@@ -19,6 +19,7 @@ Given target = 3, return true.
 Algorithm: Binary search, treat as a sorted array
 1. let start and end be index
 2. find target with matrix[mid // cols][mid % cols]
+T: O(m*nlogm*n), S: O(1)
 """
 """
 @param {int[][]} matrix

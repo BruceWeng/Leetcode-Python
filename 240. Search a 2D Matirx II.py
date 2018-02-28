@@ -27,6 +27,7 @@ Algorithm:
     elif matrix[i][j] > target: i -= 1
     else: return True
 3. return False if target not found
+T: O(m + n), S: O(1)
 """
 """
 @param {int[][]} matrix
