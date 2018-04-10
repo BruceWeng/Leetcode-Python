@@ -19,7 +19,7 @@ Algorithm: inorder
 """
 """
 Inorder, Recursive
-T: O(n), S: O(1) + O(k)(recursive call)
+T: O(k), S: O(1) + O(k)(recursive call)
 """
 def kthSmallest(root, k):
     if root == None:
@@ -46,7 +46,7 @@ def kthSmallest(root, k):
 
 """
 Inorder, Iterative
-T: O(n), S: O(k)(stack)
+T: O(n), S: O(n)(stack)
 """
 def kthSmallest(root, k):
     if root == None:
