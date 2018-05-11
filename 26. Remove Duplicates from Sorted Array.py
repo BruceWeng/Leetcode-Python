@@ -15,6 +15,20 @@ It doesn't matter what you leave beyond the new length.
 @return {int} new length
 T: O(n), S: O(1)
 """
+"""
+1. Find the first element that different from previous one and mark as insertion index
+2. Once find the next different element, replace the new element to insertion index,
+and increment insertion index
+[1, 2, 2, 3, 3, 3, 4, 5]
+    ^
+    insertion index
+[1, 2, 2, 3, 3, 3, 4, 5]
+       ^
+       insertion index
+[1, 2, 3, 3, 3, 3, 4, 5]
+          ^
+          insertion index
+"""
 def removeDuplicates(nums):
     if nums == None or len(nums) == 0:
         return 0
