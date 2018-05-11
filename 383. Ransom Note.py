@@ -34,3 +34,5 @@ def canConstruct(ransomNote, magazine):
         charCount[ord(j) - ord("a")] -= 1
         if charCount[ord(j) - ord("a")] < 0:
             return False
+
+    return True
