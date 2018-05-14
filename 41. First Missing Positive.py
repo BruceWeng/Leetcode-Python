@@ -53,11 +53,12 @@ def firstMissingPositive(nums):
         while nums[i] > 0 and nums[i] < len(nums) and nums[nums[i] - 1] != nums[i]:
             swap(nums, nums[i] - 1, i)
 
+    i = 0
     for i, val in enumerate(nums):
         if nums[i] != i + 1:
             return i + 1
 
-    return len(nums) + 1
+    return i + 1
 
 if __name__ == "__main__":
     test1 = [1,2,0]
