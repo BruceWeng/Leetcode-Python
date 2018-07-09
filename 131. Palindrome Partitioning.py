@@ -143,6 +143,9 @@ Backtracking Summary:
 2. Use for loop in helper to generate child node
 3. Use validAns.pop() after recursive call to cover validAns to parent condition
 4. Use len(subStr) == 0 as termination condition to add validAns to result
+
+Update: No need to pass validAns in helper, since the function can access outer scope,
+Declare validAns = [] outside of helper works
 """
 """
 @param {str} s
@@ -153,8 +156,8 @@ def partition(s):
         return []
 
     result = []
-
-    def helper(subStr, validAns):
+    validAns = []
+    def helper(subStr):
         if len(subStr) == 0:
             result.append(list(validAns))
             return
@@ -164,8 +167,8 @@ def partition(s):
             # isPalindrome T: O(n), S: O(n)
             if prefix == prefix[::-1]:
                 validAns.append(prefix)
-                helper(subStr[i+1:], validAns)
+                helper(subStr[i+1:])
                 validAns.pop()
 
-    helper(s, [])
+    helper(s)
     return result
