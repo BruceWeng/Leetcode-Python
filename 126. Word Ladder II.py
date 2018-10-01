@@ -33,6 +33,8 @@ Output: []
 
 Explanation: The endWord "cog" is not in wordList, therefore no possible transformation.
 """
+import collections
+import string
 class Solution(object):
     def backtrack(self, neighbor_dict, beginWord, word, result, path):
         if beginWord == word:
@@ -60,6 +62,7 @@ class Solution(object):
         queue = collections.deque([beginWord])
         # BFS: a variation of Dijkstra's algorithm
         while len(queue):
+            print("New queue: " + queue[0])
             visited = set()
             # traverse the whole level of the same ladder length
             for i in range(len(queue)):
@@ -69,16 +72,26 @@ class Solution(object):
                         neighbor = cur[:i] + char + cur[i+1:]
                         if neighbor == cur:
                             continue
+                        print(neighbor)
                         if neighbor in unvisited:
                             if neighbor not in visited:
                                 visited.add(neighbor)
+                                print(visited)
                                 queue.append(neighbor)
                             neighbor_dict[neighbor].append(cur)
+                            print(neighbor_dict)
             unvisited -= visited
             visited.clear()
+            print(visited)
         
         # DFS
         result = []
         self.backtrack(neighbor_dict, beginWord, endWord, result, [endWord])
         return result
+
+beginWord = "hit";
+endWord = "cog";
+wordList = ["hot","dot","dog","lot","log","cog"]
+solution = Solution()
+print(solution.findLadders(beginWord, endWord, wordList))
         
