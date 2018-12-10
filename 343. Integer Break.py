@@ -27,8 +27,8 @@ def integerBreak(n):
 
     result = [2, 3, 4] # [None, None, 2, 3, 4]
     for i in range(5, n+1):
-        result[i % 3 - 2] = result[i % 3 - 2] * 3 # result[i] = result[i - 3] * 3
-    return result[n % 3 - 2] # result[n]
+        result[(i - 2) % 3] = result[(i - 2) % 3] * 3 # result[i] = result[i - 3] * 3
+    return result[(n - 2) % 3] # result[n]
 
 if __name__=="__main__":
     print(integerBreak(10)) # 36
